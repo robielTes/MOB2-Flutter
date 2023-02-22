@@ -14,48 +14,39 @@ class HomePage extends StatelessWidget {
       body: QuoteView(),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 20.0),
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FloatingActionButton.extended(
-            onPressed: () {
-            //get the quote from the stream
-            QuoteManager.instance.stream.listen((quote) {
-            //add the quote to the favorite list
-            });
-            },
-            label: const Text('Favorite'),
-            icon: const Icon(Icons.favorite),
-            backgroundColor: Colors.pink,
+            FloatingActionButton(
+              onPressed: (){},
+              tooltip: 'Favorite',
+              child: const Icon(Icons.favorite),
+              backgroundColor: Colors.pink,
             ),
             FloatingActionButton(
-            // Asks the QuoteManager for the `next` method.
-            // Note that we are completely unaware of the underlying implementation, is it GetIt? or anything else? We don't care!
-            onPressed: QuoteManager.instance.next,
-            tooltip: 'New quote',
-            child: const Icon(Icons.subdirectory_arrow_left),
+              // Asks the QuoteManager for the `next` method.
+              // Note that we are completely unaware of the underlying implementation, is it GetIt? or anything else? We don't care!
+              onPressed: QuoteManager.instance.next,
+              tooltip: 'New quote',
+              child: const Icon(Icons.subdirectory_arrow_left),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.home),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.settings),
-            ),
-          ],
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+            backgroundColor: Colors.pink,
+          ),
+        ],
+        selectedItemColor: Colors.green[800],
       ),
     );
   }
