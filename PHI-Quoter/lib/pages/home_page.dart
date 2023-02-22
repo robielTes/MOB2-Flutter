@@ -38,7 +38,25 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.home),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.settings),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
